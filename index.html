@@ -905,7 +905,7 @@
       <h2 class="countdown-title">우리의 결혼식까지</h2>
       <div class="countdown-timer">
         <div class="timer-item">
-          <div class="timer-number" id="days">197</div>
+          <div class="timer-number" id="days">00</div>
           <div class="timer-label">DAYS</div>
         </div>
         <div class="timer-item">
@@ -1168,8 +1168,8 @@
     <script>
       // 카운트다운 타이머 기능
       function updateCountdown() {
-        // 현재 날짜: 2025년 3월 12일 (요청에 맞춰서 설정)
-        const now = new Date('2025-03-12T00:00:00+09:00').getTime();
+        // 현재 시간을 실시간으로 받아오기 위해 new Date() 사용
+        const now = new Date().getTime();
         const weddingDate = new Date('2025-09-27T12:00:00+09:00').getTime();
         const distance = weddingDate - now;
         
@@ -1177,15 +1177,16 @@
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
         document.getElementById('days').textContent = days;
         document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
       }
-      
-      // 페이지 로드시 실행 (고정된 날짜이므로 1번만 실행)
+
+      // 페이지 로드시 초기 호출 및 1초마다 갱신
       updateCountdown();
+      setInterval(updateCountdown, 1000);
       
       // 캐러셀 기능
       const carousel = document.getElementById('storyCarousel');
