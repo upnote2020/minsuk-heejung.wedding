@@ -774,7 +774,7 @@
     }
     
     .kakao-pay-button:hover {
-      background-color: #F2DC00;
+      background-color: #FFEB00;
     }
     
     .toss-button {
@@ -795,7 +795,24 @@
     }
     
     .toss-button:hover {
-      background-color: #0052D9;
+      background-color: #0064FF;
+    }
+    
+    .btn-icon { /* 아이콘을 위한 고정 영역 설정 */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;  /* 좌측 여백 */
+      width: 40px;       /* 아이콘 영역 고정 너비 */
+    }
+    
+    .btn-icon img { /* 아이콘 이미지 스타일: 높이 고정, 비율 유지 */
+      height: 24px;      /* 원하는 아이콘 높이 */
+      width: auto;
+    }
+    
+    .btn-text { /* 텍스트는 아이콘 영역 다음에 일정 간격 유지 */
+      margin-left: 8px;
     }
     
     /* Thanks Section */
@@ -1437,19 +1454,23 @@
           </div>
           
           <button class="kakao-pay-button">
-            <picture>
-              <source srcset="images/icon/kakaopay.webp" type="image/webp">
-              <img src="/images/icon/kakaopay.png" alt="카카오페이 아이콘" style="margin-right: 8px;">
-            </picture>
-            카카오페이로 송금하기
+            <span class="btn-icon">
+              <picture>
+                <source srcset="images/icon/kakaopay.webp" type="image/webp">
+                <img src="/images/icon/kakaopay.png" alt="카카오페이 아이콘">
+              </picture>
+            </span>
+            <span class="btn-text">카카오페이로 송금하기</span>
           </button>
-          
+
           <button class="toss-button">
-            <picture>
-              <source srcset="images/icon/tosspay.webp" type="image/webp">
-              <img src="/images/icon/tosspay.png" alt="토스 아이콘" style="margin-right: 8px; width: 40px; height: 40px;">
-            </picture>
-            토스로 송금하기
+            <span class="btn-icon">
+              <picture>
+                <source srcset="images/icon/tosspay.webp" type="image/webp">
+                <img src="/images/icon/tosspay.png" alt="토스 아이콘">
+              </picture>
+            </span>
+            <span class="btn-text">토스로 송금하기</span>
           </button>
         `;
         
